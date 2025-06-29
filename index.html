@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MeusGanhos</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <header>
+      <div class="header-top">
+        <div></div>
+        <div class="theme-switch-wrapper">
+          <label class="theme-switch" for="themeToggle">
+            <input type="checkbox" id="themeToggle">
+            <div class="slider round"></div>
+          </label>
+          <span class="theme-label">Modo Escuro</span>
+        </div>
+      </div>
+      <i class="fas fa-wallet"></i>
+      <h1>MeusGanhos</h1>
+    </header>
+
+    <div class="tabs">
+      <div class="tab active" data-tab="calculadora">
+        <i class="fas fa-calculator"></i> Calculadora
+      </div>
+      <div class="tab" data-tab="apoie">
+        <i class="fas fa-heart"></i> Apoie
+      </div>
+    </div>
+
+    <div class="tab-content active" id="calculadora">
+      <section class="input-section">
+        <h2><i class="fas fa-edit"></i> Dados de Entrada</h2>
+        <label>
+          <i class="fas fa-money-bill-wave"></i> Faturamento (R$):
+          <input type="number" id="faturamento" value="200">
+        </label>
+        <label>
+          <i class="fas fa-road"></i> Km rodado:
+          <input type="number" id="kmRodado" value="100">
+        </label>
+        <label>
+          <i class="fas fa-gas-pump"></i> Preço da gasolina (R$):
+          <input type="number" id="precoGasolina" value="6.25">
+        </label>
+        <label>
+          <i class="fas fa-oil-can"></i> Preço da troca de óleo (R$):
+          <input type="number" id="precoTrocaOleo" value="40">
+        </label>
+        <label>
+          <i class="fas fa-tachometer-alt"></i> Consumo (Km/L):
+          <input type="number" id="consumo" value="30">
+        </label>
+        <label>
+          <i class="fas fa-cog"></i> Troca de óleo a cada (Km):
+          <input type="number" id="kmTrocaOleo" value="1000">
+        </label>
+      </section>
+
+      <section class="reserva-section">
+        <h2><i class="fas fa-piggy-bank"></i> Reservas</h2>
+        <div class="result-item">
+          <span>Troca de óleo:</span>
+          <span id="valorTroca">R$0.00</span>
+        </div>
+        <div class="result-item">
+          <span>Manutenção (5%):</span>
+          <span id="manutencao">R$0.00</span>
+        </div>
+      </section>
+
+      <section class="gasolina-section">
+        <h2><i class="fas fa-gas-pump"></i> Gasolina</h2>
+        <div class="result-item">
+          <span>Gasto com gasolina:</span>
+          <span id="gasolina">R$0.00</span>
+        </div>
+      </section>
+
+      <section class="resultado-section">
+        <h2><i class="fas fa-chart-line"></i> Resultado</h2>
+        <div class="result-item custo">
+          <span>Custos totais:</span>
+          <span id="custos">R$0.00</span>
+        </div>
+        <div class="result-item lucro">
+          <span>Lucro Total:</span>
+          <span id="lucro">R$0.00</span>
+        </div>
+      </section>
+    </div>
+
+    <div class="tab-content" id="apoie">
+      <section class="pix-section">
+        <h2><i class="fas fa-heart"></i> Apoie este projeto</h2>
+        <p>Contribua a partir de R$ 1,00 para ajudar no desenvolvimento</p>
+        
+        <div>
+          <h3>Chave PIX:</h3>
+          <div class="pix-key">71988384932</div>
+          <button class="copy-btn" id="copyPix">
+            <i class="fas fa-copy"></i> Copiar Chave
+          </button>
+        </div>
+        
+        <p style="margin-top: 20px;">
+          <i class="fas fa-info-circle"></i> Esta é uma chave PIX do tipo CPF/CNPJ
+        </p>
+      </section>
+    </div>
+
+    <footer>
+      <p>Feito livremente por <a href="https://github.com/andredeomondes" target="_blank">André Deomondes</a> ❤️</p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
