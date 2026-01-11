@@ -3,122 +3,482 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MeusGanhos</title>
+  <title>MeusGanhos v2.0 🚀</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-  <main class="container">
-    <header>
-      <div class="header-top">
-        <div></div>
-        <div class="theme-switch-wrapper">
-          <label class="theme-switch" for="themeToggle">
-            <input type="checkbox" id="themeToggle">
-            <div class="slider round"></div>
-          </label>
-          <span class="theme-label">Modo Escuro</span>
+  <div class="app-container">
+    <!-- Header com Logo Rocketseat Style -->
+    <header class="main-header">
+      <div class="header-content">
+        <div class="logo-container">
+          <div class="logo-icon">
+            <i class="fas fa-rocket"></i>
+          </div>
+          <div class="logo-text">
+            <h1>MeusGanhos</h1>
+            <span class="version-badge">v2.0</span>
+          </div>
+        </div>
+        
+        <div class="header-controls">
+          <div class="currency-selector">
+            <select id="currencySelect">
+              <option value="BRL">R$ BRL</option>
+              <option value="USD">$ USD</option>
+              <option value="EUR">€ EUR</option>
+              <option value="GBP">£ GBP</option>
+            </select>
+          </div>
+          
+          <div class="theme-toggle-container">
+            <button id="themeToggle" class="theme-toggle">
+              <i class="fas fa-moon"></i>
+              <i class="fas fa-sun"></i>
+              <span class="toggle-slider"></span>
+            </button>
+          </div>
         </div>
       </div>
-      <i class="fas fa-wallet"></i>
-      <h1>MeusGanhos</h1>
     </header>
 
-    <div class="tabs">
-      <div class="tab active" data-tab="calculadora">
-        <i class="fas fa-calculator"></i> Calculadora
+    <!-- Tabs Navigation -->
+    <nav class="tabs-navigation">
+      <div class="tabs-container">
+        <button class="tab-btn active" data-tab="calculadora">
+          <i class="fas fa-calculator"></i>
+          <span>Calculadora</span>
+        </button>
+        <button class="tab-btn" data-tab="distribuicao">
+          <i class="fas fa-chart-pie"></i>
+          <span>Distribuir</span>
+        </button>
+        <button class="tab-btn" data-tab="historico">
+          <i class="fas fa-history"></i>
+          <span>Histórico</span>
+        </button>
+        <button class="tab-btn" data-tab="exportar">
+          <i class="fas fa-share-alt"></i>
+          <span>Exportar</span>
+        </button>
+        <button class="tab-btn" data-tab="apoie">
+  <i class="fas fa-heart"></i>
+  <span>Apoie</span>
+</button>
       </div>
-      <div class="tab" data-tab="apoie">
-        <i class="fas fa-heart"></i> Apoie
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Calculadora Tab -->
+      <div class="tab-content active" id="calculadora">
+        <div class="grid-layout">
+          <!-- Entrada de Dados -->
+          <section class="card data-input">
+            <div class="card-header">
+              <i class="fas fa-edit card-icon"></i>
+              <h2>Dados de Entrada</h2>
+            </div>
+            <div class="card-body">
+              <div class="input-group">
+                <label for="faturamento">
+                  <i class="fas fa-money-bill-wave"></i>
+                  Faturamento
+                </label>
+                <div class="input-with-currency">
+                  <span class="currency-symbol" id="currencySymbol">R$</span>
+                  <input type="number" id="faturamento" value="200" step="10" min="0">
+                </div>
+              </div>
+
+              <div class="input-group">
+                <label for="kmRodado">
+                  <i class="fas fa-road"></i>
+                  Km rodado
+                </label>
+                <input type="number" id="kmRodado" value="100" step="1" min="0">
+              </div>
+
+              <div class="input-group">
+                <label for="precoGasolina">
+                  <i class="fas fa-gas-pump"></i>
+                  Preço da gasolina
+                </label>
+                <div class="input-with-currency">
+                  <span class="currency-symbol" id="currencySymbol">R$</span>
+                  <input type="number" id="precoGasolina" value="6.25" step="0.01" min="0">
+                </div>
+              </div>
+
+              <div class="input-group">
+                <label for="consumo">
+                  <i class="fas fa-tachometer-alt"></i>
+                  Consumo (Km/L)
+                </label>
+                <input type="number" id="consumo" value="30" step="0.1" min="1">
+              </div>
+
+              <div class="input-group">
+                <label for="alimentacao">
+                  <i class="fas fa-utensils"></i>
+                  Alimentação
+                </label>
+                <div class="input-with-currency">
+                  <span class="currency-symbol" id="currencySymbol">R$</span>
+                  <input type="number" id="alimentacao" value="30" step="5" min="0">
+                </div>
+              </div>
+
+              <div class="input-group">
+                <label for="corridasExtras">
+                  <i class="fas fa-plus-circle"></i>
+                  Corridas Extras
+                </label>
+                <div class="input-with-currency">
+                  <span class="currency-symbol" id="currencySymbol">R$</span>
+                  <input type="number" id="corridasExtras" value="0" step="10" min="0">
+                </div>
+              </div>
+
+              <div class="input-group">
+                <label for="custoPersonalizado">
+                  <i class="fas fa-tools"></i>
+                  Custo Personalizado
+                </label>
+                <div class="input-with-currency">
+                  <span class="currency-symbol" id="currencySymbol">R$</span>
+                  <input type="number" id="custoPersonalizado" value="0" step="5" min="0">
+                </div>
+                <small class="input-hint">Quebrou algo? Imprevisto?</small>
+              </div>
+            </div>
+          </section>
+
+          <!-- Resultados -->
+          <section class="card resultados">
+            <div class="card-header">
+              <i class="fas fa-chart-line card-icon"></i>
+              <h2>Resultado do Dia</h2>
+            </div>
+            <div class="card-body">
+              <div class="result-grid">
+                <div class="result-item">
+                  <span class="result-label">Gasto com Gasolina</span>
+                  <span class="result-value" id="gasolina">R$ 0.00</span>
+                </div>
+                
+                <div class="result-item">
+                  <span class="result-label">Alimentação</span>
+                  <span class="result-value" id="alimentacaoResult">R$ 0.00</span>
+                </div>
+                
+                <div class="result-item">
+                  <span class="result-label">Custos Extras</span>
+                  <span class="result-value" id="custosExtras">R$ 0.00</span>
+                </div>
+                
+                <div class="result-item total">
+                  <span class="result-label">Custos Totais</span>
+                  <span class="result-value" id="custosTotais">R$ 0.00</span>
+                </div>
+                
+                <div class="result-item lucro">
+                  <span class="result-label">
+                    <i class="fas fa-coins"></i>
+                    Lucro Total
+                  </span>
+                  <span class="result-value" id="lucroTotal">R$ 0.00</span>
+                </div>
+              </div>
+
+              <div class="action-buttons">
+                <button id="btnSalvarDia" class="btn-primary btn-save">
+                  <i class="fas fa-save"></i>
+                  Salvar Este Dia
+                </button>
+                <button id="btnLimpar" class="btn-secondary">
+                  <i class="fas fa-broom"></i>
+                  Limpar
+                </button>
+              </div>
+            </div>
+          </section>
+        </div>
       </div>
+
+      <!-- Distribuição Tab -->
+      <div class="tab-content" id="distribuicao">
+        <section class="card distribuicao-card">
+          <div class="card-header">
+            <i class="fas fa-chart-pie card-icon"></i>
+            <h2>Distribuir o Lucro</h2>
+          </div>
+          <div class="card-body">
+            <p class="section-description">
+              Veja como distribuir seu lucro de forma inteligente:
+            </p>
+            
+            <div class="distribution-grid">
+              <div class="distribution-item" data-percent="30">
+                <div class="distribution-icon">
+                  <i class="fas fa-gas-pump"></i>
+                </div>
+                <div class="distribution-content">
+                  <h3>Gasolina (30%)</h3>
+                  <p>Próxima semana de trabalho</p>
+                  <div class="distribution-value" id="distGasolina">R$ 0.00</div>
+                </div>
+              </div>
+              
+              <div class="distribution-item" data-percent="20">
+                <div class="distribution-icon">
+                  <i class="fas fa-tools"></i>
+                </div>
+                <div class="distribution-content">
+                  <h3>Manutenção (20%)</h3>
+                  <p>Reserva para imprevistos</p>
+                  <div class="distribution-value" id="distManutencao">R$ 0.00</div>
+                </div>
+              </div>
+              
+              <div class="distribution-item" data-percent="25">
+                <div class="distribution-icon">
+                  <i class="fas fa-home"></i>
+                </div>
+                <div class="distribution-content">
+                  <h3>Custos Pessoais (25%)</h3>
+                  <p>Alimentação, contas, etc</p>
+                  <div class="distribution-value" id="distPessoal">R$ 0.00</div>
+                </div>
+              </div>
+              
+              <div class="distribution-item" data-percent="25">
+                <div class="distribution-icon">
+                  <i class="fas fa-piggy-bank"></i>
+                </div>
+                <div class="distribution-content">
+                  <h3>Investir/Juntar (25%)</h3>
+                  <p>Seu futuro financeiro</p>
+                  <div class="distribution-value" id="distInvestir">R$ 0.00</div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="distribution-chart-container">
+              <div class="chart-wrapper">
+                <canvas id="distributionChart"></canvas>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Histórico Tab -->
+      <div class="tab-content" id="historico">
+        <section class="card historico-card">
+          <div class="card-header">
+            <i class="fas fa-history card-icon"></i>
+            <h2>Seu Histórico</h2>
+            <button id="btnExportCSV" class="btn-icon">
+              <i class="fas fa-file-export"></i>
+              Exportar CSV
+            </button>
+          </div>
+          <div class="card-body">
+            <div class="history-stats">
+              <div class="stat-item">
+                <span class="stat-label">Melhor Dia</span>
+                <span class="stat-value" id="melhorDia">R$ 0.00</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">Média Diária</span>
+                <span class="stat-value" id="mediaDia">R$ 0.00</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">Total Salvo</span>
+                <span class="stat-value" id="totalSalvo">R$ 0.00</span>
+              </div>
+            </div>
+            
+            <div class="history-list" id="historyList">
+              <div class="empty-history">
+                <i class="fas fa-history"></i>
+                <p>Nenhum dia salvo ainda</p>
+                <small>Calcule e clique em "Salvar Este Dia"</small>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+<!-- Apoie Tab -->
+<div class="tab-content" id="apoie">
+  <section class="card apoie-card">
+    <div class="card-header">
+      <i class="fas fa-heart card-icon"></i>
+      <h2>Apoie este Projeto ❤️</h2>
     </div>
-
-    <div class="tab-content active" id="calculadora">
-      <section class="input-section">
-        <h2><i class="fas fa-edit"></i> Dados de Entrada</h2>
-        <label>
-          <i class="fas fa-money-bill-wave"></i> Faturamento (R$):
-          <input type="number" id="faturamento" value="200">
-        </label>
-        <label>
-          <i class="fas fa-road"></i> Km rodado:
-          <input type="number" id="kmRodado" value="100">
-        </label>
-        <label>
-          <i class="fas fa-gas-pump"></i> Preço da gasolina (R$):
-          <input type="number" id="precoGasolina" value="6.25">
-        </label>
-        <label>
-          <i class="fas fa-oil-can"></i> Preço da troca de óleo (R$):
-          <input type="number" id="precoTrocaOleo" value="40">
-        </label>
-        <label>
-          <i class="fas fa-tachometer-alt"></i> Consumo (Km/L):
-          <input type="number" id="consumo" value="30">
-        </label>
-        <label>
-          <i class="fas fa-cog"></i> Troca de óleo a cada (Km):
-          <input type="number" id="kmTrocaOleo" value="1000">
-        </label>
-      </section>
-
-      <section class="reserva-section">
-        <h2><i class="fas fa-piggy-bank"></i> Reservas</h2>
-        <div class="result-item">
-          <span>Troca de óleo:</span>
-          <span id="valorTroca">R$0.00</span>
+    <div class="card-body">
+      <div class="apoie-hero">
+        <div class="apoie-icon">
+          <i class="fas fa-hands-helping"></i>
         </div>
-        <div class="result-item">
-          <span>Manutenção (5%):</span>
-          <span id="manutencao">R$0.00</span>
-        </div>
-      </section>
-
-      <section class="gasolina-section">
-        <h2><i class="fas fa-gas-pump"></i> Gasolina</h2>
-        <div class="result-item">
-          <span>Gasto com gasolina:</span>
-          <span id="gasolina">R$0.00</span>
-        </div>
-      </section>
-
-      <section class="resultado-section">
-        <h2><i class="fas fa-chart-line"></i> Resultado</h2>
-        <div class="result-item custo">
-          <span>Custos totais:</span>
-          <span id="custos">R$0.00</span>
-        </div>
-        <div class="result-item lucro">
-          <span>Lucro Total:</span>
-          <span id="lucro">R$0.00</span>
-        </div>
-      </section>
-    </div>
-
-    <div class="tab-content" id="apoie">
-      <section class="pix-section">
-        <h2><i class="fas fa-heart"></i> Apoie este projeto</h2>
-        <p>Contribua a partir de R$ 1,00 para ajudar no desenvolvimento</p>
-        
-        <div>
-          <h3>Chave PIX:</h3>
-          <div class="pix-key">71988384932</div>
-          <button class="copy-btn" id="copyPix">
-            <i class="fas fa-copy"></i> Copiar Chave
-          </button>
-        </div>
-        
-        <p style="margin-top: 20px;">
-          <i class="fas fa-info-circle"></i> Esta é uma chave PIX do tipo CPF/CNPJ
+        <h3>Ajude a manter o MeusGanhos!</h3>
+        <p class="apoie-description">
+          Seu apoio é essencial para cobrir custos de domínio, hospedagem e 
+          desenvolver novas funcionalidades que ajudam milhares de motoristas.
         </p>
-      </section>
+      </div>
+      
+      <div class="apoie-content">
+        <div class="apoie-benefits">
+          <h4><i class="fas fa-star"></i> Com seu apoio:</h4>
+          <ul class="benefits-list">
+            <li><i class="fas fa-check"></i> Domínio próprio (meusganhos.app)</li>
+            <li><i class="fas fa-check"></i> Hospedagem premium</li>
+            <li><i class="fas fa-check"></i> Novas funcionalidades mensais</li>
+            <li><i class="fas fa-check"></i> App mobile em desenvolvimento</li>
+            <li><i class="fas fa-check"></i> Suporte mais rápido</li>
+          </ul>
+        </div>
+        
+        <div class="pix-section">
+          <div class="pix-header">
+            <i class="fas fa-qrcode"></i>
+            <h4>Chave PIX (CPF)</h4>
+          </div>
+          
+          <div class="pix-key-container">
+            <div class="pix-key-display" id="pixKey">
+              71988384932
+            </div>
+            <div class="pix-hint">
+              <i class="fas fa-info-circle"></i>
+              Chave PIX do tipo CPF
+            </div>
+          </div>
+          
+          <div class="pix-actions">
+            <button id="btnCopyPix" class="btn-primary btn-pix">
+              <i class="fas fa-copy"></i>
+              Copiar Chave PIX
+            </button>
+            <button id="btnGenerateQR" class="btn-secondary">
+              <i class="fas fa-qrcode"></i>
+              Ver QR Code
+            </button>
+          </div>
+          
+          <div class="donation-amounts">
+            <h5>Valores sugeridos:</h5>
+            <div class="amount-buttons">
+              <button class="amount-btn" data-amount="5">R$ 5</button>
+              <button class="amount-btn" data-amount="10">R$ 10</button>
+              <button class="amount-btn" data-amount="20">R$ 20</button>
+              <button class="amount-btn" data-amount="50">R$ 50</button>
+              <button class="amount-btn" data-amount="100">R$ 100</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="apoie-footer">
+        <div class="supporters-count">
+          <i class="fas fa-users"></i>
+          <span>+ de 100 motoristas já apoiaram</span>
+        </div>
+        <p class="gratitude">
+          Obrigado por fazer parte dessa comunidade! 🙏
+        </p>
+      </div>
     </div>
+  </section>
+</div>
+      <!-- Exportar Tab -->
+      <div class="tab-content" id="exportar">
+        <section class="card exportar-card">
+          <div class="card-header">
+            <i class="fas fa-share-alt card-icon"></i>
+            <h2>Exportar & Compartilhar</h2>
+          </div>
+          <div class="card-body">
+            <div class="export-preview" id="exportPreview">
+              <div class="preview-header">
+                <i class="fas fa-rocket preview-logo"></i>
+                <h3>MeusGanhos</h3>
+                <span class="preview-date">15/01/2024</span>
+              </div>
+              
+              <div class="preview-content">
+                <div class="preview-item">
+                  <span>Faturamento</span>
+                  <span id="prevFaturamento">R$ 200.00</span>
+                </div>
+                <div class="preview-item">
+                  <span>Km Rodado</span>
+                  <span id="prevKm">100 km</span>
+                </div>
+                <div class="preview-item">
+                  <span>Custos Totais</span>
+                  <span id="prevCustos">R$ 80.00</span>
+                </div>
+                <div class="preview-item lucro">
+                  <span>Lucro Total</span>
+                  <span id="prevLucro">R$ 120.00</span>
+                </div>
+              </div>
+              
+              <div class="preview-footer">
+                <p>meusganhos.vercel.app</p>
+                <small>Gerado com ❤️ por MeusGanhos v2.0</small>
+              </div>
+            </div>
+            
+            <div class="export-actions">
+            <button id="btnExportImage" class="btn-primary">
+  <i class="fas fa-camera"></i>
+  Gerar Imagem para Compartilhar
+</button>
+              <button id="btnCopyLink" class="btn-secondary">
+                <i class="fas fa-link"></i>
+                Copiar Link dos Resultados
+              </button>
+            </div>
+            
+            <div class="export-tips">
+              <h4><i class="fas fa-lightbulb"></i> Dica:</h4>
+              <p>A imagem gerada terá o tamanho perfeito para stories do Instagram e WhatsApp!</p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
 
-    <footer>
-      <p>Feito livremente por <a href="https://github.com/andredeomondes" target="_blank">André Deomondes</a> ❤️</p>
+    <!-- Footer -->
+    <footer class="main-footer">
+      <div class="footer-content">
+        <div class="footer-left">
+          <p>
+            Feito com <i class="fas fa-heart heart-beat"></i> por 
+            <a href="https://github.com/andredeomondes" target="_blank">André Deomondes</a>
+          </p>
+        </div>
+        <div class="footer-right">
+          <span class="footer-version">v2.0 🚀</span>
+        </div>
+      </div>
     </footer>
-  </main>
+  </div>
 
-  <script src="script.js"></script>
+  <!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="utils/currencyFormatter.js"></script>
+<script src="utils/historyManager.js"></script>
+<script src="utils/exportImage.js"></script>
+<script src="script.js"></script>
+<script src="init.js"></script>
 </body>
 </html>
